@@ -22,8 +22,6 @@ public class BasePage {
         open("https://www.saucedemo.com/");
         driver = getWebDriver();
         driver.manage().window().maximize();
-        //Configuration.startMaximized = true;
-        //Configuration.headless = true;
     }
 
     public BasePage(String pageUrl){
@@ -31,8 +29,6 @@ public class BasePage {
         open(pageUrl);
         driver = getWebDriver();
         driver.manage().window().maximize();
-        //Configuration.startMaximized = true;
-        //Configuration.headless = true;
     }
 
     public BasePage(WebDriver driver){

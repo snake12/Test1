@@ -26,51 +26,12 @@ public class Tests {
             return login;
         }
     }
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        System.setProperty("headless", "false"); // You can set this property elsewhere
-//        String headless = System.getProperty("headless");
-//
-//        ChromeDriverManager.chromedriver();
-//        if("true".equals(headless)) {
-//            ChromeOptions chromeOptions = new ChromeOptions();
-//            chromeOptions.addArguments("--headless");
-//            driver = new ChromeDriver(chromeOptions);
-//        } else {
-//            driver = new ChromeDriver();
-//        }
-//    }
-//
-//    @AfterSuite
-//    public void afterSuite() {
-//        if(null != driver) {
-//            driver.close();
-//            driver.quit();
-//        }
-//    }
-
-
-//    @BeforeClass
-//    public static void setup() {
-//        //определение пути до драйвера и его настройка
-//        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-//        //создание экземпляра драйвера
-//        WebDriver driver = new ChromeDriver();
-//        //окно разворачивается на полный экран
-//        driver.manage().window().maximize();
-//        //задержка на выполнение теста = 10 сек.
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        //получение ссылки на страницу входа из файла настроек
-//        driver.get(ConfProperties.getProperty("loginpage")); } }
 
     @Test
     public void loginSuccess(){
         LoginPage loginPage = new LoginPage();
         loginPage.login(LoginUser.STANDARD_USER.getLogin(), password);
         MainPage mainPage = new MainPage(loginPage.getDriver());
-        //mainPage.clickMenuButton();
-        //mainPage.clickMenuButton();
-       // mainPage.wait(1000L);
         assertTrue(mainPage.isShoppingCartVisible());
     }
 
@@ -79,9 +40,6 @@ public class Tests {
         LoginPage loginPage = new LoginPage();
         loginPage.login(LoginUser.STANDARD_USER.getLogin(), "password");
         MainPage mainPage = new MainPage(loginPage.getDriver());
-        //mainPage.clickMenuButton();
-        //mainPage.clickMenuButton();
-        // mainPage.wait(1000L);
         assertFalse(mainPage.isShoppingCartVisible());
     }
 

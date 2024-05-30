@@ -10,7 +10,6 @@ public class LoginPage extends BasePage {
     public SelenideElement loginField = $(By.xpath("//input[@class='input_error form_input'][@id='user-name']"));
     public SelenideElement passwordField = $(By.xpath("//input[@class='input_error form_input'][@id='password']"));
     public SelenideElement signInButton = $(By.xpath("//input[@class='submit-button btn_action'][@id='login-button']"));
-    public SelenideElement termsOfUseLabel = $("label[for=\"login_agree\"]");
 
     public LoginPage() {
         super();
@@ -23,9 +22,7 @@ public class LoginPage extends BasePage {
     public void login(String email, String password) {
         loginField.setValue(email);
         passwordField.setValue(password);
-        //termsOfUseLabel.click();
         signInButton.click();
-        //Driver.waitForUrlContains("account/accounts");
     }
 
 
