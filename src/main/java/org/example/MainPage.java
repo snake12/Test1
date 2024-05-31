@@ -12,6 +12,7 @@ public class MainPage extends BasePage{
     public SelenideElement logoutButton = $(By.xpath("//nav[@class='bm-item-list']/a[text()='Logout']"));
     public SelenideElement shoppingCart = $(By.xpath("//a[@class='shopping_cart_link']"));
     public SelenideElement header = $(By.xpath("//div[@id='header_container']"));
+    private SelenideElement headerSecondaryContainerTitle = $(By.xpath("//div[@class='header_secondary_container']/span[@class='title']"));
     public SelenideElement footer = $(By.xpath("//footer[@class='footer']"));
 
     public MainPage() {
@@ -38,8 +39,20 @@ public class MainPage extends BasePage{
         return shoppingCart.shouldBe(visible).isDisplayed();
     }
 
+    public void clickOnShoppingCart(){
+        shoppingCart.shouldBe(visible).click();
+    }
+
     public SelenideElement getInventoryItemByName(String inventoryItemName){
         SelenideElement inventoryItem = $(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_name '][text()='"+inventoryItemName+"']"));
         return inventoryItem;
+    }
+
+    public void clickAddToCartButtonByName(String itemName){
+        $(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_name '][text()='"+itemName+"']/../../..//div[@class='pricebar']/button[text()='Add to cart']")).shouldBe(visible).click();
+    }
+
+    public String getHeaderSecondaryContainerTitle(){
+        return headerSecondaryContainerTitle.getText();
     }
 }
